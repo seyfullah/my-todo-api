@@ -1,0 +1,43 @@
+### Get all todos (should return empty array initially)
+GET https:/organic-palm-tree-4gwx64p4wxc5x6j-5000.app.github.dev/todos
+Accept: application/json
+
+###
+
+### Add a new todo
+POST https:/organic-palm-tree-4gwx64p4wxc5x6j-5000.app.github.dev/todos
+Content-Type: application/json
+
+{
+  "title": "First Task",
+  "isCompleted": false
+}
+
+###
+
+### Get todo with ID 1
+GET https:/organic-palm-tree-4gwx64p4wxc5x6j-5000.app.github.dev/todos/1
+Accept: application/json
+
+###
+
+### Update todo with ID 1
+PUT https:/organic-palm-tree-4gwx64p4wxc5x6j-5000.app.github.dev/todos/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "First Task (updated)",
+  "isCompleted": true
+}
+
+###
+
+### Delete todo with ID 1
+DELETE https:/organic-palm-tree-4gwx64p4wxc5x6j-5000.app.github.dev/todos/1
+
+###
+
+### Get all todos (should be empty again)
+GET https:/organic-palm-tree-4gwx64p4wxc5x6j-5000.app.github.dev/todos
+Accept: application/json
