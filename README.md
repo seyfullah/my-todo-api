@@ -20,7 +20,6 @@ This is a simple Todo API built using .NET 8 and the Minimal API approach. It al
 1. Clone the repository:
    ```
    git clone <repository-url>
-   cd todo-minimal-api
    ```
 
 2. Restore the dependencies:
