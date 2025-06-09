@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-west-2:576358221422:task-definition/my-todo-api-task:3",
+    "taskDefinitionArn": "arn:aws:ecs:eu-west-2:576358221422:task-definition/my-todo-api-task:4",
     "containerDefinitions": [
         {
             "name": "my-todo-api",
-            "image": "ghcr.io/seyfullah/my-todo-api:latest",
+            "image": "576358221422.dkr.ecr.eu-west-2.amazonaws.com/my-todo-api:42a38f3035ee094126067e9c9989852203c46e03",
             "cpu": 0,
             "portMappings": [
                 {
@@ -16,10 +16,8 @@
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -29,8 +27,7 @@
                     "max-buffer-size": "25m",
                     "awslogs-region": "eu-west-2",
                     "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
+                }
             },
             "systemControls": []
         }
@@ -38,7 +35,7 @@
     "family": "my-todo-api-task",
     "executionRoleArn": "arn:aws:iam::576358221422:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 3,
+    "revision": 4,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -49,10 +46,16 @@
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -78,7 +81,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-06-09T07:27:28.762Z",
+    "registeredAt": "2025-06-09T08:18:03.498Z",
     "registeredBy": "arn:aws:iam::576358221422:root",
     "tags": []
 }
