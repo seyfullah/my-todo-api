@@ -6,7 +6,12 @@ using System.Collections.Generic;
 var builder = WebApplication.CreateBuilder(args);
 
 // In-memory data store
-var todoItems = new List<TodoItem>();
+var todoItems = new List<TodoItem>
+{
+    new(1, "Learn ASP.NET Core"),
+    new(2, "Build a REST API"),
+    new(3, "Deploy to Azure")
+};
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
