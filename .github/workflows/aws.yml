@@ -35,7 +35,7 @@ env:
   ECR_REPOSITORY: my-todo-api           # set this to your Amazon ECR repository name
   ECS_SERVICE: my-todo-api-task-service                 # set this to your Amazon ECS service name
   ECS_CLUSTER: my-todo-api-cluster                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: my-todo-api-task # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: my-todo-api-task.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: my-todo-api           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
@@ -63,6 +63,9 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
+    
+    - name: Log in to registry
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin      
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
